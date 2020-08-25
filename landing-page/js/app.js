@@ -5,11 +5,6 @@
  * scrolls to anchors from navigation,
  * and highlights section in viewport upon scrolling.
  * 
- * Dependencies: None
- * 
- * JS Version: ES2015/ES6
- * 
- * JS Standard: ESlint
  * 
 */
 
@@ -39,8 +34,10 @@ function intersectViewport(entries) {
 		let section_active_data_nav = entries[i]['target'].getAttribute('data-nav');
 
 		// entries[i]['intersectionRatio']
-	
-		if (entries[i]['isIntersecting'] === true){
+		let position = entries[i]['target'].getBoundingClientRect();
+
+		if ( (entries[i]['isIntersecting'] === true )){
+
 			let section_active_data_nav = entries[i]['target'].getAttribute('data-nav');
 
 			entries[i]['target'].classList.add('your-active-class');
@@ -51,6 +48,7 @@ function intersectViewport(entries) {
 			
 		}
 		else{
+
 			let section_active_data_nav = entries[i]['target'].getAttribute('data-nav');
 
 			entries[i]['target'].classList.remove('your-active-class');			
@@ -98,7 +96,7 @@ function buildNavBar(){
 
 // Add class 'active' to section when near top of h
 function setActiveSection(){
-	let observer = new IntersectionObserver( intersectViewport, { threshold: [0.65] });
+	let observer = new IntersectionObserver( intersectViewport, { threshold: [0.45, 0.75] });
 	for (let section=0; section< sections.length ; section++) {
 		observer.observe(sections.item(section).parentNode);
 	}
