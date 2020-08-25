@@ -17,7 +17,10 @@ body {
     font-family: 'Merriweather', serif;
     color: #fff;
 }
-
+/*
+html {
+  scroll-behavior: smooth;
+}*/
 
 /* Typeography General*/
 h1 {
@@ -84,7 +87,7 @@ section {
     color: #000;
 }
 
-.navbar__menu .menu__link:hover {
+.navbar__menu .menu__link:hover, .active_link {
     background: #333;
     color: #fff;
     transition: ease 0.3s all;

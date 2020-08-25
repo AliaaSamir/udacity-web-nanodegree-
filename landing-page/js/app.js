@@ -34,18 +34,43 @@ const nav_bar = document.querySelector('#navbar__list');
 */
 
 function intersectViewport(entries) {
+	let section_links = nav_bar.childNodes;
 	for(let i=0; i<entries.length; i++) {
+		let section_active_data_nav = entries[i]['target'].getAttribute('data-nav');
+
 		// entries[i]['intersectionRatio']
-		if (entries[i]['isIntersecting'] === true)
+	
+		if (entries[i]['isIntersecting'] === true){
+			let section_active_data_nav = entries[i]['target'].getAttribute('data-nav');
+
 			entries[i]['target'].classList.add('your-active-class');
-		else
-			entries[i]['target'].classList.remove('your-active-class');
+			for (let j = 0; j < section_links.length; j++) {
+				if(section_links[j].innerHTML === section_active_data_nav)
+				section_links[j].classList.add('active_link');
+			}
+			
+		}
+		else{
+			let section_active_data_nav = entries[i]['target'].getAttribute('data-nav');
+
+			entries[i]['target'].classList.remove('your-active-class');			
+			for (let j = 0; j < section_links.length; j++) {
+				if(section_links[j].innerHTML === section_active_data_nav)
+				section_links[j].classList.remove('active_link');
+			}
+		}
 	}
 }
 
 function responedToSectionClick(event){
 	const toSection = document.querySelector("#"+ event.target.textContent.toLowerCase().replace(" ", ""));
-	window.scrollTo(0, toSection.offsetTop);
+	//window.scrollTo(0, toSection.offsetTop);
+	
+	window.scrollTo({
+	    top: toSection.offsetTop,
+	    behavior: "smooth"
+  	});
+  	
 	//location.href = "#"+ event.target.textContent.toLowerCase().replace(" ", "");
 }
 
@@ -73,7 +98,7 @@ function buildNavBar(){
 
 // Add class 'active' to section when near top of h
 function setActiveSection(){
-	let observer = new IntersectionObserver( intersectViewport, { threshold: [0.75] });
+	let observer = new IntersectionObserver( intersectViewport, { threshold: [0.65] });
 	for (let section=0; section< sections.length ; section++) {
 		observer.observe(sections.item(section).parentNode);
 	}
