@@ -66,7 +66,7 @@ const postData = async ( url = '', data = {})=>{
 const getWeather = async (baseURL, zip , key)=>{
    // console.log(baseURL+ zip+'&appid=' +key)
 
-    const response = await fetch(baseURL+ zip+'&appid=' +key)  
+    const response = await fetch(baseURL+ zip+'&appid=' +key+'&units=imperial')  
     try {
       const data = await response.json();
       //console.log(data)
