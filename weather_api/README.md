@@ -6,15 +6,15 @@ This project is a web app that uses Weather Map Web API and user data to dynamic
 ## Project Structure 
 Project Consists of:
 * server.js which have the code to use Node.js to create a server which is responsible for applying HTTP request GET & POST with EndPoint here it is the server itself.
-* website Folder which contain websit front end files:
-** app.js script file include code for dynamic interacting with the website
+* website Folder which includes website's front end files:
+** app.js script file includes code for dynamic interacting with the website
 ** index.html home page and the only one exist.
-** style.css styles for html component to look cool
+** style.css styles for HTML component to look cool
 
 ## Instructions
 This will require modifying the `server.js` file and the `website/app.js` file. You can see `index.html` for element references, and once you are finished with the project steps, you can use `style.css` to style your application to customized perfection.
 
-## Prerequistes
+## Prerequisites
 You Must have Node.js installed in your Local device you can download it from [Node.js Download page](https://nodejs.org/en/download/)
 
 or you can check if it is already installed using this command
